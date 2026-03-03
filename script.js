@@ -1,0 +1,110 @@
+function normalizeName(raw) {
+  if (!raw) return "";
+  let s = raw.trim().toLowerCase().replace(/\s+/g, " ");
+
+  const map = { "ә":"а","ғ":"г","қ":"к","ң":"н","ө":"о","ұ":"у","ү":"у","һ":"х","і":"и" };
+  s = s.replace(/[әғқңөұүһі]/g, ch => map[ch] || ch);
+
+  return s;
+}
+
+const messages = {
+  "болатик": " ",  // чтобы прошло проверку messages[key]
+  "дина": "Дина, с 8 Марта! 💐\nПусть этой весной у тебя будет много радостных моментов, нежных улыбок и тёплых людей рядом. Сияй ярко!",
+  "асхат": "Асхат, с 8 Марта! 💐\nПусть этой весной у тебя будет много аян моментов, нежных аян и аян людей рядом. Сияй с аяной ярко!",
+  "ернур": "Ернур, он такой добрый, умный, смелый, честный, внимательный, заботливый, ответственный, надёжный, искренний, харизматичный, весёлый, трудолюбивый, целеустремлённый, справедливый, открытый, терпеливый, креативный, талантливый, благородный, щедрый, понимающий, уверенный, спокойный, энергичный, позитивный, сильный, преданный, мудрый, обаятельный и вдохновляющий.",
+  "лана": "Лана, с 8 Марта! 💐\nПусть этой весной у тебя будет много радостных моментов, нежных улыбок и тёплых людей рядом. Сияй ярко!",
+  "нурай": "Нурай, с 8 Марта! 🌷\nПусть мечты становятся планами, планы — победами, а каждый день приносит спокойствие и счастье!",
+  "леян": "Леян, с 8 Марта! ✨\nПусть в твоей жизни будет больше красивых событий, вдохновения и уютных моментов!",
+  "аяна": "Аяна, с 8 Марта! 💖\nЖелаем улыбок, уверенности и самых добрых сюрпризов. Пусть весна подарит энергию!",
+  "аружан": "Аружан, с 8 Марта! 🌸\nПусть будет много любви, тепла и ярких моментов. Пусть твои цели достигаются легко!",
+  "саным": "Саным, с 8 Марта! 🌺\nПусть каждый день будет нежным, как весна, и сильным, как ты. Счастья и вдохновения!",
+  "сийлар": "Сийлар, с 8 Марта! 💐\nПусть рядом будут искренние люди, классные идеи и приятные сюрпризы!",
+  "анель": "Анель, с 8 Марта! 🌷\nПусть всё, что ты задумала, получается легко. Много улыбок и тепла!",
+  "дарья": "Дарья, с 8 Марта! ✨\nПусть будет больше радости, спокойствия и уверенности в себе. Удачи во всём!",
+  "айсулу": "Айсулу, с 8 Марта! 🌸\nПусть твоя доброта возвращается вдвойне, а каждый день радует чем-то светлым!",
+  "аяулым": "Аяулым, с 8 Марта! 💖\nПусть глаза сияют, настроение будет лёгким, а рядом — поддержка и забота!",
+  "айли": "Айли, с 8 Марта! 🌷\nПусть будет много вдохновения, ярких эмоций и спокойной уверенности!",
+  "жансая": "Жансая, с 8 Марта! ✨\nПусть в жизни будет больше тепла, любви и смелых мечтаний!",
+  "рахметова мадина": "Мадина Рахметова, с 8 Марта! 💐\nПусть эта весна принесёт радость, красивые моменты и уверенность в своих силах!",
+  "нигина": "Нигина, с 8 Марта! 🌸\nПусть будет много нежности, уважения, любви и вдохновения. Улыбок тебе!",
+  "майя": "Майя, с 8 Марта! ✨\nПусть будет больше счастья, приятных людей вокруг и крутых возможностей!",
+  "умбетжанова мадина": "Мадина Умбетжанова, с 8 Марта! 🌷\nПусть будут лёгкие дни, сильные победы и много тепла!",
+  "толганай": "Толганай, с 8 Марта! 💖\nПусть мечты сбываются красиво и вовремя. Весеннего настроения!"
+};
+
+const mainPage = document.getElementById("mainPage");
+const greetPage = document.getElementById("greetPage");
+const form = document.getElementById("nameForm");
+const input = document.getElementById("nameInput");
+const error = document.getElementById("error");
+const title = document.getElementById("title");
+const messageEl = document.getElementById("message");
+const backBtn = document.getElementById("backBtn");
+const copyBtn = document.getElementById("copyBtn");
+const copied = document.getElementById("copied");
+const bolatikImg = document.getElementById("bolatikImg");
+
+function showGreet(nameKey) {
+  const msg = messages[nameKey];
+
+  if (nameKey === "болатик") {
+    title.textContent = "Поздравление 💐";
+    messageEl.textContent = "";
+    bolatikImg.classList.remove("hidden");
+
+    mainPage.classList.add("hidden");
+    greetPage.classList.remove("hidden");
+    return;
+  }
+
+  bolatikImg.classList.add("hidden");
+
+  title.textContent = "Поздравление 💐";
+  messageEl.textContent = msg;
+
+  mainPage.classList.add("hidden");
+  greetPage.classList.remove("hidden");
+}
+
+function showMain() {
+  greetPage.classList.add("hidden");
+  mainPage.classList.remove("hidden");
+  copied.textContent = "";
+  error.textContent = "";
+  bolatikImg.classList.add("hidden");
+  input.focus();
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  error.textContent = "";
+
+  const key = normalizeName(input.value);
+
+  if (!key) {
+    error.textContent = "Введите имя 🙂";
+    return;
+  }
+
+  if (!messages[key]) {
+    error.textContent = "такого шпендика у меня в списках нету, бро.";
+    return;
+  }
+
+  showGreet(key);
+});
+
+backBtn.addEventListener("click", showMain);
+
+copyBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(messageEl.textContent);
+    copied.textContent = "Скопировано! 💌";
+    setTimeout(() => copied.textContent = "", 1800);
+  } catch {
+    copied.textContent = "Не получилось скопировать 😅 (попробуй вручную)";
+  }
+});
+
+input.focus();
