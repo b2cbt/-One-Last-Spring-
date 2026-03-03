@@ -248,19 +248,38 @@
       h1{ font-size:16px; }
       .badge{ font-size:11px; }
     }
-    @media (max-width: 600px){
-  .flowers{
-    height:160px;
-  }
+/* 1) Чтобы цветы/искры всегда были ЗА карточкой (и не "лезли" на фото) */
+.sky{ position:relative; isolation:isolate; }
+.sparkles{ z-index:0; }
+.flowers{ z-index:0; }
+.card{ position:relative; z-index:2; }
+
+/* 2) Чтобы у PNG (болатик) не "просвечивали" тени через прозрачность */
+#bolatikImg{
+  background:#fff;        /* подложка под прозрачные места */
+  padding:8px;            /* чтобы края выглядели аккуратнее */
+  border-radius:12px;
+}
+
+/* 3) Мобильная версия: симметрия + чтобы лепестки не перекрывались */
+@media (max-width: 520px){
+  .flowers{ height:170px; }
 
   .flower{
-    transform: scale(0.8);
     bottom:10px;
+    transform: scale(0.78);
   }
 
-  .f1{ left:2%; }
-  .f2{ left:35%; }
-  .f3{ right:2%; }
+  /* симметричнее расставляем */
+  .f1{ left:6%; transform: scale(0.78) rotate(-2deg); }
+  .f2{ left:50%; transform: translateX(-50%) scale(0.82) rotate(2deg); }
+  .f3{ right:6%; transform: scale(0.76) rotate(-1deg); }
+
+  /* чуть раздвигаем лепестки, чтобы верхний не перекрывался */
+  .p1{ left:22px; top:4px; }
+  .p2{ left:44px; top:26px; }
+  .p3{ left:22px; top:48px; }
+  .p4{ left:0px;  top:26px; }
 }
   </style>
 </head>
