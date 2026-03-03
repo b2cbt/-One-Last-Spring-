@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>8 Марта 💐</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fff1f6;
+      --bg2:#f3f7ff;
+      --card:#ffffffcc;
+      --stroke:#2b2b2b;
+      --text:#1e1e1e;
+      --muted:#5a5a5a;
+      --pink:#ff7fb1;
+      --lav:#b7b6ff;
+      --mint:#9ff3d3;
+      --butter:#ffe7a3;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Press Start 2P", system-ui, sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--bg2), var(--bg1));
+    }
+
+    .sky{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .sparkles{
+      position:absolute; inset:0;
+      background-image:
+        radial-gradient(circle at 10% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 30%, #ffffff 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 70%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, #ffffff 0 1px, transparent 2px);
+      opacity:.35;
+      filter: blur(.2px);
+      animation: twinkle 4s infinite ease-in-out;
+    }
+    @keyframes twinkle{
+      0%,100%{ opacity:.25; transform:translateY(0); }
+      50%{ opacity:.45; transform:translateY(-4px); }
+    }
+
+    .card{
+      width:min(760px, 92vw);
+      background:var(--card);
+      border:4px solid var(--stroke);
+      box-shadow: 10px 10px 0 #00000018;
+      border-radius:18px;
+      padding:22px;
+      position:relative;
+      backdrop-filter: blur(6px);
+    }
+
+    .badge{
+      position:absolute;
+      top:-14px; left:18px;
+      background: linear-gradient(90deg, var(--lav), var(--pink));
+      color:#111;
+      border:3px solid var(--stroke);
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:12px;
+      box-shadow: 6px 6px 0 #00000012;
+    }
+
+    h1{
+      margin:22px 0 12px;
+      font-size:18px;
+      line-height:1.4;
+    }
+
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .label{
+      display:block;
+      font-size:12px;
+      margin:8px 0 10px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .input{
+      flex:1 1 260px;
+      border:3px solid var(--stroke);
+      border-radius:14px;
+      padding:14px 14px;
+      font-family:inherit;
+      font-size:12px;
+      outline:none;
+      background:#fff;
+    }
+    .input:focus{
+      box-shadow: 0 0 0 4px #ff7fb133;
+    }
+
+    .btn{
+      border:3px solid var(--stroke);
+      background: linear-gradient(90deg, var(--mint), var(--butter));
+      padding:14px 16px;
+      border-radius:14px;
+      font-family:inherit;
+      font-size:12px;
+      cursor:pointer;
+      box-shadow: 6px 6px 0 #00000012;
+      transition: transform .08s ease;
+    }
+    .btn:active{ transform: translate(2px,2px); box-shadow: 3px 3px 0 #00000012; }
+
+    .btn-soft{ background: linear-gradient(90deg, #fff, #ffe0f0); }
+
+    .hint{
+      margin:12px 0 0;
+      font-size:10px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    .error{
+      margin:12px 0 0;
+      font-size:10px;
+      line-height:1.6;
+      color:#b3003c;
+      min-height:18px;
+    }
+
+    .footer{
+      margin-top:18px;
+      padding-top:12px;
+      border-top:2px dashed #00000022;
+      font-size:10px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .message-box{
+      border:3px solid var(--stroke);
+      border-radius:14px;
+      background:#fff;
+      padding:16px;
+      margin:12px 0 14px;
+    }
+
+    .message{
+      margin:0;
+      font-size:12px;
+      line-height:1.8;
+      white-space:pre-wrap;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .hidden{ display:none; }
+
+    /* Пиксельные цветы */
+    .flowers{
+      position:absolute;
+      inset:auto 0 0 0;
+      height:220px;
+      pointer-events:none;
+    }
+
+    .flower{
+      position:absolute;
+      bottom:22px;
+      width:64px;
+      height:140px;
+      filter: drop-shadow(6px 6px 0 #00000010);
+    }
+    .f1{ left:8%; transform: rotate(-2deg); }
+    .f2{ left:45%; transform: rotate(2deg) scale(1.05); }
+    .f3{ right:10%; transform: rotate(-1deg) scale(.95); }
+
+    .petal, .center, .stem, .leaf{
+      position:absolute;
+      image-rendering: pixelated;
+    }
+
+    .petal{
+      width:20px; height:20px;
+      border:3px solid var(--stroke);
+      background: linear-gradient(135deg, #ffd1e5, #fff);
+      border-radius:6px;
+    }
+    .p1{ left:22px; top:8px; }
+    .p2{ left:40px; top:26px; }
+    .p3{ left:22px; top:44px; }
+    .p4{ left:4px; top:26px; }
+
+    .center{
+      width:18px; height:18px;
+      border:3px solid var(--stroke);
+      background: linear-gradient(135deg, var(--butter), #fff);
+      border-radius:6px;
+      left:23px; top:27px;
+    }
+
+    .stem{
+      width:10px; height:70px;
+      left:27px; top:64px;
+      background: linear-gradient(180deg, #b8f7d7, #66d7a6);
+      border:3px solid var(--stroke);
+      border-radius:8px;
+    }
+
+    .leaf{
+      width:18px; height:12px;
+      background: linear-gradient(135deg, #a7f0d2, #eafff6);
+      border:3px solid var(--stroke);
+      border-radius:10px;
+      top:92px;
+    }
+    .l1{ left:6px; transform: rotate(-12deg); }
+    .l2{ left:36px; transform: rotate(12deg); }
+
+    @media (max-width:420px){
+      h1{ font-size:16px; }
+      .badge{ font-size:11px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sky">
+    <div class="sparkles"></div>
+
+    <div class="flowers" aria-hidden="true">
+      <div class="flower f1">
+        <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+        <div class="center"></div><div class="stem"></div><div class="leaf l1"></div><div class="leaf l2"></div>
+      </div>
+      <div class="flower f2">
+        <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+        <div class="center"></div><div class="stem"></div><div class="leaf l1"></div><div class="leaf l2"></div>
+      </div>
+      <div class="flower f3">
+        <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+        <div class="center"></div><div class="stem"></div><div class="leaf l1"></div><div class="leaf l2"></div>
+      </div>
+    </div>
+
+    <main class="card">
+      <div class="badge">8 Марта</div>
+
+      <!-- Блок ввода -->
+      <section id="mainPage">
+        <h1>Поздравление от 9 выживших</h1>
+        <p class="subtitle">Введи своё имя и получи личное поздравление 💗</p>
+
+        <form id="nameForm" autocomplete="off">
+          <label class="label" for="nameInput">Твоё имя:</label>
+
+          <div class="row">
+            <input id="nameInput" class="input" type="text" placeholder="Например: Асхат" />
+            <button class="btn" type="submit">ОК</button>
+          </div>
+
+          <p class="hint"> Запрещенные слова: геометрия, подруга амира, аяна...</p>
+          <p id="error" class="error" aria-live="polite"></p>
+        </form>
+
+        <footer class="footer">Без негатива  от 11г ((</footer>
+      </section>
+
+      <!-- Блок поздравления -->
+      <section id="greetPage" class="hidden">
+        <h1 id="title">Поздравление 💐</h1>
+
+        <div class="message-box">
+          <p id="message" class="message"></p>
+
+          <img id="bolatikImg" class="hidden"
+               src="https://i.ibb.co/hJN5crmB/bolatik.png"
+               alt="Болатик"
+               style="max-width:100%; height:auto; display:block; margin:0 auto;">
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-soft" id="backBtn">← Назад</button>
+          <button class="btn" id="copyBtn">Скопировать 💌</button>
+        </div>
+
+        <p id="copied" class="hint" aria-live="polite"></p>
+
+        <footer class="footer">Пусть день будет тёплым и красивым как болатик </footer>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
