@@ -46,8 +46,10 @@ const backBtn = document.getElementById("backBtn");
 const copyBtn = document.getElementById("copyBtn");
 const copied = document.getElementById("copied");
 const bolatikImg = document.getElementById("bolatikImg");
+const wallpaper = document.getElementById("wallpaper");
 
 function showGreet(nameKey) {
+  wallpaper.classList.add("hidden");
   const msg = messages[nameKey];
 
   if (nameKey === "болатик") {
@@ -70,6 +72,7 @@ function showGreet(nameKey) {
 }
 
 function showMain() {
+  wallpaper.classList.remove("hidden");
   greetPage.classList.add("hidden");
   mainPage.classList.remove("hidden");
   copied.textContent = "";
