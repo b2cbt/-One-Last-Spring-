@@ -32,7 +32,6 @@ const messages = {
   "рахметова мадина": "Madina, we congratulate you with international women's day🌸\n We wish this last school spring to be warmer than all the previous ones🍃\n We know you're always locked in and you will achieve all ur goals (whether it's to travel🏂, find ambitious surrounding📚, visit Australia, then leave this country, pull minji💯 and kill everyone or anything like that)🐶\n No matter where life takes you after graduation, never doubt yourself and never forget how smart and strong you are, you matter💎\n Keep standing out with your beauty and fire fits. You’re LOWKEY niche and goated⬆️🔝",
   "нигина": "Нигина, с 8 Марта! 🌸\nПусть будет много нежности, уважения, любви и вдохновения. Улыбок тебе!",
   "майя": "Майя, с 8 Марта! ✨\nПусть будет больше счастья, приятных и 'дорогих' людей вокруг и крутых возможностей! С тобой даже близкая зима не страшна ",
-  "майя": "Майя, с 8 Марта! ✨\nПусть будет больше счастья, приятных и 'дорогих' людей вокруг и крутых возможностей! С тобой даже близкая зима не страшна ",
   "умбетжанова мадина": "Мадина Умбетжанова, с 8 Марта! 🌷\nПусть будут лёгкие дни, сильные победы в дотке и много тепла!",
   "толганай": "Толганай, с 8 Марта! 💖\nПусть мечты сбываются красиво и вовремя. Весеннего настроения! Если тебе что то не понравилось в нашем поздравлений просто скажи tell me why "
 };
