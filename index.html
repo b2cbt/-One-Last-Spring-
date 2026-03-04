@@ -263,6 +263,23 @@
 
 /* 3) Мобильная версия: симметрия + чтобы лепестки не перекрывались */
 @media (max-width: 520px){
+  /* ОБОИ */
+.bg-wallpaper{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: url("ССЫЛКА_НА_ФОТО");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 1;
+}
+
+.sparkles{ z-index:0; }
+.flowers{ z-index:0; }
+.card{ position:relative; z-index:2; }
   .flowers{ height:170px; }
 
   .flower{
@@ -287,6 +304,7 @@
 <body>
   <div class="sky">
     <div class="sparkles"></div>
+    <div id="wallpaper" class="bg-wallpaper"></div>
 
     <div class="flowers" aria-hidden="true">
       <div class="flower f1">
