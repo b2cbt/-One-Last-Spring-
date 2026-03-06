@@ -11,9 +11,9 @@ function normalizeName(raw) {
 const messages = {
   "болатик": "секретное слово",// чтобы прошло проверку messages[key]
   "клуп": "этот бро действительно угадал одно секретное слово, ты реально крут черт тебя за ногу, дракон тебя за ручку и асхат за ножку",
-  "Алау": "Бро угадал секретное слово!?!??!?! Бесподобный, лучший, величайший (ая)",
   "67": "идиот",
   "вадим": "у тебя будильник ***рит",
+  "Алау": "Бро угадал секретное слово!?!??!?! Бесподобный, лучший, величайший (ая)",
   "чингиз": "ПРИЗЫВНИК. ОБЯЗАН ЯВИТЬСЯ В ВОЕНКОМАТ",
   "абылай": "черт подери какой же он красавчик",
   "мадина рахметова": "Madina, we (togyz jiggaz) congratulate you with international women's day🌸\n wish this last school spring to be warmer than all the previous ones🍃\n We know you're always locked in and you will achieve all ur goals (whether it's to travel🏂, find ambitious surrounding📚, visit Australia, then leave this country, pull minji💯 and kill everyone or something like that)🐶\n No matter where life takes you after graduation, never doubt yourself and never forget how smart and strong you are, you matter \n Keep standing out with your beauty and fire fits. You’re MAYBE niche and lowkey goated⬆️🔝 \n be on low cortisol.",
